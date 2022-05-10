@@ -10,3 +10,11 @@ jobs:
     - uses: shirok/setup-gauche@2d3511ae1db438e9ee511937fb524c9dc5a7ca3c
     - name: Run gosh
       run: gosh -V
+
+  test-osx12:
+    runs-on: macos-12
+    steps:
+    - uses: actions/checkout@v3
+    - uses: shirok/setup-gauche@2d3511ae1db438e9ee511937fb524c9dc5a7ca3c
+    - name: Run gosh
+      run: gosh -V
