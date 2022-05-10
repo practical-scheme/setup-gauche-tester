@@ -1,0 +1,12 @@
+name: Test setup-gauche action
+
+on: [ push ]
+
+jobs:
+  test-linux:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: shirok/setup-gauche@v1
+    - name: Run gosh
+      run: gosh -V
