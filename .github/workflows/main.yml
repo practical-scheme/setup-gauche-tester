@@ -7,7 +7,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: shirok/setup-gauche@v2
+    - uses: shirok/setup-gauche@90da350ef1eb98c26d4759579b30dd7799d16f42
+    - name: Run gosh
+      run: gosh -V
+
+  test-linux-head:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: shirok/setup-gauche@90da350ef1eb98c26d4759579b30dd7799d16f42
+      with:
+        gauche-version: 'snapshot'
+        test-gauche: true
     - name: Run gosh
       run: gosh -V
 
@@ -15,6 +26,6 @@ jobs:
     runs-on: macos-12
     steps:
     - uses: actions/checkout@v3
-    - uses: shirok/setup-gauche@v2
+    - uses: shirok/setup-gauche@90da350ef1eb98c26d4759579b30dd7799d16f42
     - name: Run gosh
       run: gosh -V
