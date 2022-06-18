@@ -1,6 +1,6 @@
 name: Test setup-gauche action
 
-on: [ push repository_dispatch ]
+on: [ push, repository_dispatch ]
 
 jobs:
   test-linux:
