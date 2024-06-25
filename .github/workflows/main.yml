@@ -33,3 +33,13 @@ jobs:
         configure-options: '--with-slib=/opt'
     - name: Run gosh
       run: gosh -V
+
+  test-setup-binary:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: shirok/setup-gauche@test-bin
+      with:
+        prebuilt-binary: true
+    - name: Run gosh
+      run: gosh -V
