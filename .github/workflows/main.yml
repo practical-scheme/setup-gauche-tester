@@ -1,6 +1,6 @@
 name: Test setup-gauche action
 
-on: [ push, repository_dispatch ]
+on: [ repository_dispatch, workflow_dispatch ]
 
 
 # We don't use cross-matrix for platform and gauche-version, for
