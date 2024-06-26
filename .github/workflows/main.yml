@@ -15,9 +15,12 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v3
-    - uses: shirok/setup-gauche@main
+    - uses: practical-scheme/setup-gauche@main
     - name: Run gosh
-      run: gosh -V
+      run: |
+        gosh -V
+        gosh ./main.scm
+
 
   test-setup-snapshot:
     strategy:
@@ -26,20 +29,24 @@ jobs:
     runs-on: ${{ matrix.platform }}
     steps:
     - uses: actions/checkout@v3
-    - uses: shirok/setup-gauche@main
+    - uses: practical-scheme/setup-gauche@main
       with:
         gauche-version: 'snapshot'
         test-gauche: true
         configure-options: '--with-slib=/opt'
     - name: Run gosh
-      run: gosh -V
+      run: |
+        gosh -V
+        gosh ./main.scm
 
   test-setup-binary:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: shirok/setup-gauche@main
+    - uses: practical-scheme/setup-gauche@main
       with:
         prebuilt-binary: true
     - name: Run gosh
-      run: gosh -V
+      run: |
+        gosh -V
+        gosh ./main.scm
